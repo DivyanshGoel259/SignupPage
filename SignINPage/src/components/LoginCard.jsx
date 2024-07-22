@@ -34,20 +34,20 @@ export default function SignUp() {
     const handleSubmit = async (event) => {
         event.preventDefault();
             console.log("hello")
-            const res = await fetch("127.0.0.1:3000/user/signup", {
+            const res = await fetch("http://127.0.0.1:3000/user/signup", {
                 method: "POST",
                 body: JSON.stringify({
                     FirstName: event.currentTarget.firstName.value,
                     LastName: event.currentTarget.lastName.value,
                     email: event.currentTarget.email.value,
-                    password: event.currentTarget.email.value,
+                    password: event.currentTarget.password.value,
                 }),
                 headers: {
                     "content-type": "application/json"
                 }
             })
             const ans = await res.json()
-            console.log(ans)
+            alert(ans.msg)
         
     }
 

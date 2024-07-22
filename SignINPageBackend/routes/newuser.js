@@ -1,10 +1,13 @@
 const express = require("express")
 const User = require("../db")
 const router = express()
+const userAuthMiddlewares = require("../middlewares/userAuth")
 
 router.use(express.json())
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", userAuthMiddlewares , async (req, res) => {
+    
+    console.log("hello")
     const password = req.body.password
     const FirstName = req.body.FirstName
     const LastName = req.body.LastName
