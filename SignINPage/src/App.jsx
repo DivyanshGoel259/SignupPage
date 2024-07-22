@@ -2,10 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import './index.css'
 import { BrowserRouter, Route,Routes,useNavigate} from "react-router-dom"
 import React,{Suspense} from "react"
-import {Loading} from './components/loading'
 const SignIn = React.lazy(()=>import("./components/SignInCard"))
 const SignUp = React.lazy(()=>import("./components/LoginCard"))
 
@@ -15,7 +13,7 @@ function App() {
 
   return (
     <>
-    {/* <Loading></Loading> */}
+    
     
     <BrowserRouter>
     
