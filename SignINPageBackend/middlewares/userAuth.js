@@ -1,6 +1,5 @@
 const User = require("../db")
 const userAuthMiddleware = async (req,res,next)=>{
-    console.log("reached")
     try {
     const response = await User.findOne({
         email:req.body.email

@@ -12,7 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -33,22 +34,29 @@ const defaultTheme = createTheme();
 export default function SignUp() {
     const handleSubmit = async (event) => {
         event.preventDefault();
-            console.log("hello")
-            const res = await fetch("http://127.0.0.1:3000/user/signup", {
-                method: "POST",
-                body: JSON.stringify({
-                    FirstName: event.currentTarget.firstName.value,
-                    LastName: event.currentTarget.lastName.value,
-                    email: event.currentTarget.email.value,
-                    password: event.currentTarget.password.value,
-                }),
-                headers: {
-                    "content-type": "application/json"
-                }
-            })
-            const ans = await res.json()
-            alert(ans.msg)
-        
+        const res = await fetch("http://127.0.0.1:3000/user/signup", {
+            method: "POST",
+            body: JSON.stringify({
+                FirstName: event.currentTarget.firstName.value,
+                LastName: event.currentTarget.lastName.value,
+                email: event.currentTarget.email.value,
+                password: event.currentTarget.password.value,
+            }),
+            headers: {
+                "content-type": "application/json"
+            }
+        })
+        const ans = await res.json()
+        if (ans.msg === "User Created Succesfully") {
+            toast.success(ans.msg);
+        } else if (ans.msg === "Email Already Exist") {
+            toast.error(ans.msg,{
+                position:'top-left',
+                draggable: true,
+                
+            });
+        }
+
     }
 
 
@@ -139,8 +147,10 @@ export default function SignUp() {
                         </Grid>
                     </Box>
                 </Box>
+                <ToastContainer />
                 <Copyright sx={{ mt: 5 }} />
             </Container>
         </ThemeProvider>
     );
 }
+
