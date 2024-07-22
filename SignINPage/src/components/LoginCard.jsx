@@ -31,7 +31,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function SignUp() {
+export default function SignUpForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const res = await fetch("http://127.0.0.1:3000/user/signup", {
