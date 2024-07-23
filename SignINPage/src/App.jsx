@@ -4,16 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Route,Routes,useNavigate} from "react-router-dom"
 import React,{Suspense} from "react"
+import { Welcome } from './components/Welcome'
 const SignIn = React.lazy(()=>import("./components/SignInCard"))
 const SignUp = React.lazy(()=>import("./components/LoginCard"))
-
 
 function App() {
 
 
   return (
     <>
-    
+    {/* <Welcome></Welcome> */}
     
     <BrowserRouter>
     

@@ -49,12 +49,14 @@ export default function SignInForm() {
             toast.success(ans.msg,{
                 position: 'top-right',
                 draggable: true,
+                theme:'dark'
 
             });
         } else if (ans.msg === "Username and Password not Exist") {
             toast.error(ans.msg, {
                 position: 'top-left',
                 draggable: true,
+                theme:'dark'
 
             });
         }
@@ -64,8 +66,9 @@ export default function SignInForm() {
 
 
     return (
+        
         <ThemeProvider theme={defaultTheme}>
-            <Container component="main" maxWidth="xs">
+            <Container className='border-solid border-2 border-white border-opacity-15 rounded-[18px] text-white' component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                     sx={{
@@ -92,6 +95,28 @@ export default function SignInForm() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: 'gray', // Border color default and focused
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: 'white', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: 'white', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: 'gray', // Default label color
+                                            '&.Mui-focused': {
+                                                color: 'white', // Label color when focused
+                                            },
+                                        },
+                                    }}
+                                    InputProps={{
+                                        style: { color: 'white' }, // Text color inside the input field
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -103,6 +128,28 @@ export default function SignInForm() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: 'gray', // Border color default and focused
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: 'white', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: 'white', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: 'gray', // Default label color
+                                            '&.Mui-focused': {
+                                                color: 'white', // Label color when focused
+                                            },
+                                        },
+                                    }}
+                                    InputProps={{
+                                        style: { color: 'white' }, // Text color inside the input field
+                                    }}
                                 />
                             </Grid>
                             
@@ -125,7 +172,7 @@ export default function SignInForm() {
                     </Box>
                 </Box>
                 <ToastContainer />
-                <Copyright sx={{ mt: 5 }} />
+                <Copyright sx={{ color:'white', mt: 5 ,mb:1}} />
             </Container>
         </ThemeProvider>
     );

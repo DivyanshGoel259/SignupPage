@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { dark } from '@mui/material/styles/createPalette';
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -48,11 +49,17 @@ export default function SignUpForm() {
         })
         const ans = await res.json()
         if (ans.msg === "User Created Succesfully") {
-            toast.success(ans.msg);
+            toast.success(ans.msg,{
+                position:'top-right',
+                draggable: true,
+                theme:'dark'
+                
+            });
         } else if (ans.msg === "Email Already Exist") {
             toast.error(ans.msg,{
                 position:'top-left',
                 draggable: true,
+                theme:'dark'
                 
             });
         }
@@ -62,9 +69,10 @@ export default function SignUpForm() {
 
 
     return (
-        <div >
+        <div>
+            
         <ThemeProvider theme={defaultTheme}>
-            <Container className='border-solid border-2 bg-[FFFFFF] border-opacity-30 border-[#FFFFFF] text-white rounded-[18px]' component="main" maxWidth="xs">
+            <Container className='border-solid border-2 border-white border-opacity-15 rounded-[18px] text-white' component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                     sx={{
@@ -91,11 +99,27 @@ export default function SignUpForm() {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: 'gray', // Border color default and focused
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: 'white', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: 'white', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: 'gray', // Default label color
+                                            '&.Mui-focused': {
+                                                color: 'white', // Label color when focused
+                                            },
+                                        },
+                                    }}
                                     InputProps={{
-                                        style: {color:'white' }, // Change 'red' to the border color you desire
-                                        }}
-                                    InputLabelProps={{
-                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                        style: { color: 'white' }, // Text color inside the input field
                                     }}
                                 />
                             </Grid>
@@ -107,11 +131,27 @@ export default function SignUpForm() {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: 'gray', // Border color default and focused
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: 'white', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: 'white', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: 'gray', // Default label color
+                                            '&.Mui-focused': {
+                                                color: 'white', // Label color when focused
+                                            },
+                                        },
+                                    }}
                                     InputProps={{
-                                        style: {color:'white' }, // Change 'red' to the border color you desire
-                                        }}
-                                    InputLabelProps={{
-                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                        style: { color: 'white' }, // Text color inside the input field
                                     }}
                                 />
                             </Grid>
@@ -123,16 +163,34 @@ export default function SignUpForm() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: 'gray', // Border color default and focused
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: 'white', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: 'white', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: 'gray', // Default label color
+                                            '&.Mui-focused': {
+                                                color: 'white', // Label color when focused
+                                            },
+                                        },
+                                    }}
                                     InputProps={{
-                                        style: {color:'white' }, // Change 'red' to the border color you desire
-                                        }}
-                                    InputLabelProps={{
-                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                        style: { color: 'white' }, // Text color inside the input field
                                     }}
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid  item  xs={12 }>
                                 <TextField
+                                    
+                                    
                                     required
                                     fullWidth
                                     name="password"
@@ -140,11 +198,27 @@ export default function SignUpForm() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': {
+                                                borderColor: 'gray', // Border color default and focused
+                                            },
+                                            '&:hover fieldset': {
+                                                borderColor: 'white', // Border color on hover
+                                            },
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: 'white', // Border color when focused
+                                            },
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: 'gray', // Default label color
+                                            '&.Mui-focused': {
+                                                color: 'white', // Label color when focused
+                                            },
+                                        },
+                                    }}
                                     InputProps={{
-                                        style: {color:'white' }, // Change 'red' to the border color you desire
-                                        }}
-                                    InputLabelProps={{
-                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                        style: { color: 'white' }, // Text color inside the input field
                                     }}
                                 />
                             </Grid>
@@ -171,7 +245,7 @@ export default function SignUpForm() {
                             Sign Up
                         </Button>
                         <Grid container justifyContent="flex-end">
-                            <Grid item>
+                            <Grid  item>
                                 <Link href="#" variant="body2">
                                     Already have an account? Sign in
                                 </Link>
@@ -180,7 +254,7 @@ export default function SignUpForm() {
                     </Box>
                 </Box>
                 <ToastContainer />
-                <Copyright sx={{ mt: 5 }} />
+                <Copyright  sx={{ color:'white', mt: 5 ,mb:1}} />
             </Container>
         </ThemeProvider>
         </div>
