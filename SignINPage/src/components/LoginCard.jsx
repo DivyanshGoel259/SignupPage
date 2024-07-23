@@ -62,12 +62,13 @@ export default function SignUpForm() {
 
 
     return (
+        <div >
         <ThemeProvider theme={defaultTheme}>
-            <Container component="main" maxWidth="xs">
+            <Container className='border-solid border-2 bg-[FFFFFF] border-opacity-30 border-[#FFFFFF] text-white rounded-[18px]' component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 4,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -79,9 +80,9 @@ export default function SignUpForm() {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
+                    <Box  component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                        <Grid  container spacing={2}>
+                            <Grid  item xs={12} sm={6}>
                                 <TextField
                                     autoComplete="given-name"
                                     name="firstName"
@@ -90,6 +91,12 @@ export default function SignUpForm() {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+                                    InputProps={{
+                                        style: {color:'white' }, // Change 'red' to the border color you desire
+                                        }}
+                                    InputLabelProps={{
+                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -100,6 +107,12 @@ export default function SignUpForm() {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
+                                    InputProps={{
+                                        style: {color:'white' }, // Change 'red' to the border color you desire
+                                        }}
+                                    InputLabelProps={{
+                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -110,6 +123,12 @@ export default function SignUpForm() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    InputProps={{
+                                        style: {color:'white' }, // Change 'red' to the border color you desire
+                                        }}
+                                    InputLabelProps={{
+                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -121,11 +140,24 @@ export default function SignUpForm() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    InputProps={{
+                                        style: {color:'white' }, // Change 'red' to the border color you desire
+                                        }}
+                                    InputLabelProps={{
+                                        style: { color: 'white' }, // Change 'blue' to the color you desire
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
+                                    
+                                    control={
+                                        <Checkbox
+                                            icon={<span className="w-5 h-5 border border-white rounded-sm" />} // Customize unchecked state
+                                            value="allowExtraEmails" color="primary"
+                                        />
+                                    }
+                                    
                                     label="I want to receive inspiration, marketing promotions and updates via email."
                                 />
                             </Grid>
@@ -151,6 +183,7 @@ export default function SignUpForm() {
                 <Copyright sx={{ mt: 5 }} />
             </Container>
         </ThemeProvider>
+        </div>
     );
 }
 
