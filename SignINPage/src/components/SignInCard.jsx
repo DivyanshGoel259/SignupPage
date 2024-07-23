@@ -66,6 +66,7 @@ export default function SignInForm() {
 
 
     return (
+        <div >
         
         <ThemeProvider theme={defaultTheme}>
             <Container className='border-solid border-2 border-white border-opacity-15 rounded-[18px] text-white' component="main" maxWidth="xs">
@@ -82,13 +83,14 @@ export default function SignInForm() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Login
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
 
                             <Grid item xs={12}>
                                 <TextField
+                                    
                                     required
                                     fullWidth
                                     id="email"
@@ -175,6 +177,7 @@ export default function SignInForm() {
                 <Copyright sx={{ color:'white', mt: 5 ,mb:1}} />
             </Container>
         </ThemeProvider>
+        </div>
     );
 }
 

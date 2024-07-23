@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <>
+    <div >
     {/* <Welcome></Welcome> */}
     
     <BrowserRouter>
@@ -22,13 +22,13 @@ function App() {
   </div>}>
     <Routes>
       <Route path="/" element = {<AppBar/>}/>
-      <Route path='/Signup' element = {<SignUp/>}/>
-      <Route path='/Signin' element = {<SignIn/>}/>
+      <Route path='/Signup' element = {<div className='bg-[#181818] h-screen flex items-center justify-center'><SignUp/></div>}/>
+      <Route path='/Signin' element = {<div className='bg-[#181818] h-screen flex items-center justify-center'><SignIn/></div>}/>
     </Routes>
     </Suspense>
     
     </BrowserRouter>
-    </>
+    </div>
   )
 }
 
